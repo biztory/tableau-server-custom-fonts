@@ -32,6 +32,13 @@ Part 2: in your dashboards:
     * https://penguin.biztory.com/tableau-server-custom-fonts/webfont.html?font=Oswald
 1. Publish your dashboard and test it on a computer where the web font is not explicitly installed.
 
+## Notes
+
+Due to some browsers enforcing [CSP (Content Security Policies)](https://help.tableau.com/current/server/en-us/security_csp.htm) in different ways, it may be necessary to ensure Tableau Server allows resources specifically from this URL to be fetched.
+
+* One simple method consists of adding this URL as a whitelisted URL on the Site's Extensions settings page. The result is effectively that this URL is considered as safe for this purpose, as Extensions and Web Page objects on dashboards both effectively function as iframes.
+* Alternatively, it may be possible to solve this more structurally by [modifying Tableau Server's CSP directives](https://help.tableau.com/current/server/en-us/security_csp.htm), though this has not been tested thoroughly.
+
 ## Support
 
 No support is offered for this solution - use it at your own risk! That being said, if you find a problem, you're free to report it as an issue in this repository. We'll respond on a best-effort basis.
